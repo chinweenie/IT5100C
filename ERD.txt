@@ -1,0 +1,32 @@
+Users](emailAddress*,name);
+[Creator]();
+[Backer]();
+Users ==> {Creator,Backer};
+
+[Project](pid*,projectName,fundingGoal,fundingDeadline);
+<Creates>(creationDate);
+Creator === Creates;
+Project ==> Creates;
+
+<Funds>(fundingDate,fundingAmount);
+Backer --- Funds;
+Project ==> Funds;
+
+[RewardLevel](levelName*,amountFunded);
+<Associates>();
+Project === Associates;
+RewardLevel ==> Associates;
+Backer ==> Associates;
+
+<Updates>();
+Creator --- Updates;
+Backer === Updates;
+
+[Employee](eid*,employeeName,monthlySalary);
+[<RefundRequest>]();
+Backer ==> RefundRequest;
+Project --> RefundRequest;
+
+<Processes>(dateOfProcessing);
+Employee --- Processes;
+RefundRequest --> Processes;
