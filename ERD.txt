@@ -10,12 +10,12 @@ Project ==> Creates;
 
 [<Funds>](fundingDate,fundingAmount);
 Backer --- Funds;
-Project --- Funds;
 
 [RewardLevel](levelName*,amountFunded);
 <Associates>();
 RewardLevel ==> Associates;
 Funds ==> Associates;
+Projects === Associates;
 
 <Updates>();
 Creator --- Updates;
